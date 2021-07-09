@@ -1,6 +1,7 @@
 const nav = document.querySelector('#header nav')
 const toggle = document.querySelectorAll('nav .toggle')
 const links = document.querySelectorAll('nav ul li a')
+const sections = document.querySelectorAll('main section[id]')
 
 for (const element of toggle) {
   element.addEventListener('click', function () {
@@ -14,10 +15,9 @@ for (const link of links) {
   })
 }
 
+const header = document.querySelector('#header')
+const navHeight = header.offsetHeight
 function changeHeaderWhenScroll() {
-  const header = document.querySelector('#header')
-  const navHeight = header.offsetHeight
-
   if (window.scrollY >= navHeight) {
     header.classList.add('scroll')
   } else {
@@ -59,9 +59,8 @@ scrollReveal.reveal(
   { interval: 100 }
 )
 
+const backToTopButton = document.querySelector('.back-to-top')
 function backToTop() {
-  const backToTopButton = document.querySelector('.back-to-top')
-
   if (window.scrollY >= 560) {
     backToTopButton.classList.add('show')
   } else {
@@ -69,7 +68,10 @@ function backToTop() {
   }
 }
 
+function activateMenuAtCurrentSection() {}
+
 window.addEventListener('scroll', function () {
   changeHeaderWhenScroll()
   backToTop()
+  activateMenuAtCurrentSection()
 })
